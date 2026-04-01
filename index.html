@@ -66,10 +66,26 @@
 </footer>
 <script>
 function copyText(id) {
-  const text = document.getElementById(id).innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    alert("Copied to clipboard ✅");
-  });
+  const element = document.getElementById(id);
+  const text = element.innerText;
+
+  // Fallback som fungerer overalt (også iOS)
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.style.position = "fixed";
+  textarea.style.left = "-9999px";
+  document.body.appendChild(textarea);
+  textarea.select();
+  textarea.setSelectionRange(0, 99999);
+
+  try {
+    document.execCommand("copy");
+    alert("Copied ✅");
+  } catch (err) {
+    alert("Could not copy. Please select manually.");
+  }
+
+  document.body.removeChild(textarea);
 }
 </script>
 </body>
