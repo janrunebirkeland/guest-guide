@@ -17,11 +17,22 @@
 
 <main class="container">
 
-  <section>
-    <h2>Wi‑Fi</h2>
-    <p><strong>SSID:</strong> EVA0876484</p>
-    <p><strong>Password:</strong> HWDSPCLJ</p>
-  </section>
+ <section>
+  <h2>Wi‑Fi</h2>
+
+  <p>
+    <strong>SSID:</strong>
+    <span id="wifi-ssid">EVA0876484</span>
+    <button onclick="copyText('wifi-ssid')">Copy</button>
+  </p>
+
+  <p>
+    <strong>Password:</strong>
+    <span id="wifi-pass">HWDSPCLJ</span>
+    <button onclick="copyText('wifi-pass')">Copy</button>
+  </p>
+</section>
+
 
   <section>
     <h2>Check‑in / Check‑out</h2>
