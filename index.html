@@ -20,67 +20,105 @@
   <p class="subtitle">Via Laricola 34a · Gravedona ed Uniti · Lake Como</p>
 </header>
 
-<main class="container">
+<script>
+const translations = {
+  en: {
+    wifi_title: "Wi‑Fi",
+    checkin_title: "Check‑in / Check‑out",
+    checkin_label: "Check‑in:",
+    checkout_label: "Check‑out:",
+    checkin_time: "From 15:00",
+    checkout_time: "By 10:00",
 
- <section>
-  <h2 data-i18n="wifi_title">Wi‑Fi</h2>
+    local_title: "Local contact (on site)",
+    local_name_label: "Name:",
+    local_phone_label: "Phone:",
+    local_note: "Available via WhatsApp",
 
-  <p>
-    <strong>SSID:</strong>
-    <span id="wifi-ssid">EVA0876484</span>
-    <button onclick="copyText('wifi-ssid')">Copy</button>
-  </p>
+    owner_title: "Owner",
+    owner_phone_label: "Phone:",
+    owner_lang_note: "Language: English only",
 
-  <p>
-    <strong>Password:</strong>
-    <span id="wifi-pass">HWDSPCLJ</span>
-    <button onclick="copyText('wifi-pass')">Copy</button>
-  </p>
-</section>
+    emergency_title: "Emergency",
+    emergency_number: "112"
+  },
 
+  it: {
+    wifi_title: "Wi‑Fi",
+    checkin_title: "Check‑in / Check‑out",
+    checkin_label: "Check‑in:",
+    checkout_label: "Check‑out:",
+    checkin_time: "Dalle ore 15:00",
+    checkout_time: "Entro le ore 10:00",
 
-  <section>
-  <h2 data-i18n="checkin_title">Check‑in / Check‑out</h2>
-   <p><strong data-i18n="checkin_label">Check‑in:</strong> <span data-i18n="checkin_time">From 15:00</span></p>
-  <p><strong data-i18n="checkout_label">Check‑out:</strong> <span data-i18n="checkout_time">By 10:00</span></p>
-  </section>
+    local_title: "Referente locale (in loco)",
+    local_name_label: "Nome:",
+    local_phone_label: "Telefono:",
+    local_note: "Disponibile su WhatsApp",
 
-<section>
-  <h2 data-i18n="local_title">Local contact (on site)</h2>
+    owner_title: "Proprietario",
+    owner_phone_label: "Telefono:",
+    owner_lang_note: "Lingua: solo inglese",
 
-  <p>
-    <strong data-i18n="local_name_label">Name:</strong>
-    Stefano Grotto
-  </p>
+    emergency_title: "Emergenze",
+    emergency_number: "112"
+  },
 
-  <p>
-    <strong data-i18n="local_phone_label">Phone:</strong>
-    +39 389 583 4450
-  </p>
+  no: {
+    wifi_title: "Wi‑Fi",
+    checkin_title: "Innsjekk / Utsjekk",
+    checkin_label: "Innsjekk:",
+    checkout_label: "Utsjekk:",
+    checkin_time: "Etter kl. 15:00",
+    checkout_time: "Kl. 10:00",
 
-  <p data-i18n="local_note">Available via WhatsApp</p>
-</section>
+    local_title: "Lokal kontakt (på stedet)",
+    local_name_label: "Navn:",
+    local_phone_label: "Telefon:",
+    local_note: "Tilgjengelig via WhatsApp",
 
-<section>
-  <h2 data-i18n="owner_title">Owner</h2>
+    owner_title: "Eier",
+    owner_phone_label: "Telefon:",
+    owner_lang_note: "Språk: kun engelsk",
 
-  <p><strong>Jan Rune Birkeland</strong></p>
+    emergency_title: "Nødnummer",
+    emergency_number: "112"
+  },
 
-  <p>
-    <strong data-i18n="owner_phone_label">Phone:</strong>
-    +47 908 45 384
-  </p>
+  de: {
+    wifi_title: "WLAN",
+    checkin_title: "Check‑in / Check‑out",
+    checkin_label: "Check‑in:",
+    checkout_label: "Check‑out:",
+    checkin_time: "Ab 15:00 Uhr",
+    checkout_time: "Bis 10:00 Uhr",
 
-  <p data-i18n="owner_lang_note">Language: English only</p>
-</section>
+    local_title: "Lokaler Ansprechpartner",
+    local_name_label: "Name:",
+    local_phone_label: "Telefon:",
+    local_note: "Erreichbar über WhatsApp",
 
-<section>
-  <h2 data-i18n="emergency_title">Emergency</h2>
-  <p><strong data-i18n="emergency_number">112</strong></p>
-</section>
+    owner_title: "Eigentümer",
+    owner_phone_label: "Telefon:",
+    owner_lang_note: "Sprache: nur Englisch",
 
-</main>
+    emergency_title: "Notruf",
+    emergency_number: "112"
+  }
+};
 
+function setLang(lang) {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+}
+
+// Sett standardspråk ved lasting
+setLang("en");
+</script>
 <footer class="footer">
   <p>Digital guest guide · QR friendly</p>
 </footer>
