@@ -5,12 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Guest Guide – Via Laricola 34a</title>
   <meta name="description" content="Digital guest guide for Via Laricola 34a, Gravedona ed Uniti" />
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Alt-i-én styling (du trenger ikke styles.css for at dette skal se bra ut) -->
+  <style>
+    :root{
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --ink:#0f172a;
+      --muted:#64748b;
+      --border:#e2e8f0;
+      --shadow:0 6px 18px rgba(15,23,42,.06);
+      --accent:#0f172a;
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+    header{
+      text-align:center;
+      padding:18px 16px 10px;
+      border-bottom:1px solid var(--border);
+      background:linear-gradient(180deg,#e5f0ff,#ffffff);
+    }
+    h1{margin:0 0 6px;letter-spacing:-.02em}
+    .subtitle{margin:0;color:var(--muted);font-size:13px}
+    main{max-width:900px;margin:0 auto;padding:16px}
+    section{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:16px;
+      margin:14px 0;
+      box-shadow:var(--shadow);
+    }
+    h2{margin:0 0 10px}
+    p{margin:8px 0}
+    a{color:var(--ink);text-decoration:underline}
+    .muted{color:var(--muted);font-size:13px}
+
+    .language-switch{
+      display:flex;gap:8px;justify-content:center;flex-wrap:wrap;
+      padding:12px 16px;background:#fff;border-bottom:1px solid var(--border);
+      position:sticky;top:0;z-index:10;
+    }
+    .language-switch button{
+      border:1px solid #cbd5e1;background:#fff;padding:6px 10px;border-radius:999px;
+      cursor:pointer;font-size:12px;font-weight:700;
+    }
+    .language-switch button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+    .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .copy-btn{
+      border:1px solid #cbd5e1;background:#fff;padding:6px 10px;border-radius:999px;
+      cursor:pointer;font-size:12px;font-weight:700;
+    }
+
+    footer{text-align:center;padding:16px;color:var(--muted);font-size:13px}
+    .toast{
+      position:fixed;left:50%;bottom:18px;transform:translateX(-50%);
+      background:rgba(15,23,42,.92);color:#fff;padding:10px 12px;border-radius:999px;
+      font-size:13px;display:none;z-index:999;
+    }
+    .toast.show{display:block}
+  </style>
 </head>
 
 <body>
 
-  <!-- Language buttons -->
+  <!-- Språk -->
   <div class="language-switch" aria-label="Language switch">
     <button type="button" data-lang="en">EN</button>
     <button type="button" data-lang="it">IT</button>
@@ -18,12 +79,12 @@
     <button type="button" data-lang="de">DE</button>
   </div>
 
-  <header class="header">
+  <header>
     <h1 data-i18n="page_title">Welcome</h1>
-    <p class="subtitle" data-i18n="page_subtitle">Via Laricola 34a · Gravedona ed Uniti · Lake Como</p>
+    <p class="subtitle" data-i18n="page_subtitle">VIA LARICOLA 34a · Gravedona ed Uniti · Lake Como</p>
   </header>
 
-  <main class="container">
+  <main>
 
     <!-- Wi‑Fi -->
     <section>
@@ -41,7 +102,9 @@
         <button class="copy-btn" type="button" data-copy-target="wifi-pass" data-i18n="copy_btn">Copy</button>
       </div>
 
-      <p class="muted" data-i18n="wifi_tip" style="margin-top:10px;">Tip: Tap “Copy” to avoid typing.</p>
+      <p class="muted" data-i18n="wifi_tip" style="margin-top:10px;">
+        Tip: Tap “Copy” to avoid typing.
+      </p>
     </section>
 
     <!-- Check-in / Check-out -->
@@ -58,7 +121,9 @@
         <span data-i18n="checkout_time">By 10:00</span>
       </p>
 
-      <p class="muted" data-i18n="id_note">ID is verified in person at check‑in (required by law).</p>
+      <p class="muted" data-i18n="id_note">
+        ID is verified in person at check‑in (required by law).
+      </p>
     </section>
 
     <!-- Local contact -->
@@ -80,7 +145,9 @@
         <a href="https://wa.me/393895834450" target="_blank" rel="noreferrer" data-i18n="whatsapp_link">Chat on WhatsApp</a>
       </p>
 
-      <p class="muted" data-i18n="local_note">For urgent issues on site (water leak, lock-out, etc.).</p>
+      <p class="muted" data-i18n="local_note">
+        For urgent issues on site (water leak, lock-out, etc.).
+      </p>
     </section>
 
     <!-- Owner -->
@@ -97,25 +164,25 @@
         <a href="tel:+4790845384">+47 908 45 384</a>
       </p>
 
-      <p class="muted" data-i18n="owner_lang_note">Language: English only. For urgent issues, contact the local representative.</p>
+      <p class="muted" data-i18n="owner_lang_note">
+        Language: English only. For urgent issues, contact the local representative.
+      </p>
     </section>
 
     <!-- Emergency -->
     <section>
       <h2 data-i18n="emergency_title">Emergency</h2>
-
       <p>
         <strong data-i18n="emergency_number_label">Number:</strong>
         <span data-i18n="emergency_number">112</span>
       </p>
-
       <p class="muted" data-i18n="emergency_note">European emergency number (Italy).</p>
     </section>
 
   </main>
 
-  <footer class="footer">
-    <p class="muted">CIN: IT013249C2EESS2RHY · VIA LARICOLA 34a</p>
+  <footer>
+    <span class="muted">CIN: IT013249C2EESS2RHY · VIA LARICOLA 34a</span>
   </footer>
 
   <div class="toast" id="toast">Copied ✅</div>
@@ -123,64 +190,4 @@
   <script>
     // ---------- Translations ----------
     const translations = {
-      en: {
-        page_title: "Welcome",
-        page_subtitle: "Via Laricola 34a · Gravedona ed Uniti · Lake Como",
-
-        wifi_title: "Wi‑Fi",
-        wifi_ssid_label: "SSID:",
-        wifi_pass_label: "Password:",
-        copy_btn: "Copy",
-        wifi_tip: "Tip: Tap “Copy” to avoid typing.",
-
-        checkin_title: "Check‑in / Check‑out",
-        checkin_label: "Check‑in:",
-        checkout_label: "Check‑out:",
-        checkin_time: "From 15:00",
-        checkout_time: "By 10:00",
-        id_note: "ID is verified in person at check‑in (required by law).",
-
-        local_title: "Local contact (on site)",
-        local_name_label: "Name:",
-        local_phone_label: "Phone:",
-        whatsapp_link: "Chat on WhatsApp",
-        local_note: "For urgent issues on site (water leak, lock-out, etc.).",
-
-        owner_title: "Owner",
-        owner_and_spouse: "(and spouse)",
-        owner_phone_label: "Phone:",
-        owner_lang_note: "Language: English only. For urgent issues, contact the local representative.",
-
-        emergency_title: "Emergency",
-        emergency_number_label: "Number:",
-        emergency_number: "112",
-        emergency_note: "European emergency number (Italy)."
-      },
-
-      it: {
-        page_title: "Benvenuti",
-        page_subtitle: "Via Laricola 34a · Gravedona ed Uniti · Lago di Como",
-
-        wifi_title: "Wi‑Fi",
-        wifi_ssid_label: "SSID:",
-        wifi_pass_label: "Password:",
-        copy_btn: "Copia",
-        wifi_tip: "Suggerimento: tocca “Copia” per evitare di digitare.",
-
-        checkin_title: "Check‑in / Check‑out",
-        checkin_label: "Check‑in:",
-        checkout_label: "Check‑out:",
-        checkin_time: "Dalle ore 15:00",
-        checkout_time: "Entro le ore 10:00",
-        id_note: "I documenti vengono verificati di persona al check‑in (obbligatorio).",
-
-        local_title: "Referente locale (in loco)",
-        local_name_label: "Nome:",
-        local_phone_label: "Telefono:",
-        whatsapp_link: "Chat su WhatsApp",
-        local_note: "Per urgenze in loco (perdita d’acqua, chiavi, ecc.).",
-
-        owner_title: "Proprietario",
-        owner_and_spouse: "(e coniuge)",
-        owner_phone_label: "Telefono:",
 
